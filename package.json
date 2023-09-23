@@ -32,6 +32,9 @@
         "@commitlint/config-conventional": "^17.7.0",
         "@markuplint/jsx-parser": "^3.9.1",
         "@markuplint/react-spec": "^3.10.1",
+        "@semantic-release/changelog": "^6.0.3",
+        "@semantic-release/git": "^10.0.1",
+        "@semantic-release/github": "^9.0.6",
         "@storybook/addon-essentials": "^7.4.4",
         "@storybook/addon-interactions": "^7.4.4",
         "@storybook/addon-links": "^7.4.4",
@@ -68,6 +71,7 @@
         "lint-staged": "^14.0.1",
         "markuplint": "^3.12.1",
         "npm-run-all": "^4.1.5",
+        "semantic-release": "^22.0.4",
         "storybook": "^7.4.4",
         "typescript": "^5.2.2",
         "vite": "^4.4.9",
@@ -76,5 +80,8 @@
     "volta": {
         "node": "20.7.0",
         "pnpm": "8.7.6"
+    },
+    "publishConfig": {
+        "@tosaken1116:registry": "https://npm.pkg.github.com"
     }
 }

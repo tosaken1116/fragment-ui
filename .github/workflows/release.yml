@@ -1,0 +1,19 @@
+name: Release
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    release:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: Setup
+              uses: ./.github/actions/pnpm
+            - name: Release
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: npx semantic-release
