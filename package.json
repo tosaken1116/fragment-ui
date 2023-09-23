@@ -55,6 +55,7 @@
         "hygen": "^6.2.11",
         "jest-dom": "^4.0.0",
         "jsdom": "^22.1.0",
+        "lint-staged": "^14.0.1",
         "markuplint": "^3.12.1",
         "storybook": "^7.4.4",
         "typescript": "^5.2.2",
