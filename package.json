@@ -3,21 +3,24 @@
     "private": true,
     "version": "0.0.0",
     "scripts": {
-        "preview": "vite preview",
         "commitlint": "commitlint -e $GIT_PARAMS",
-        "lint:precommit": "eslint 'src/**/*.{ts,tsx}' --report-unused-disable-directives --max-warnings 0",
-        "fmt:precommit": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss}'",
-        "cspell:check": "cspell -c ./cspell.config.json \"./src/**/*\" --unique --no-progress --no-summary",
-        "markuplint:check": "markuplint -p \"./src/**/*.tsx\"",
-        "test:check": "vitest run --passWithNoTests",
-        "check": "run-p *:check",
+        "check:lint": "eslint 'src/**/*.{ts,tsx}' --report-unused-disable-directives --max-warnings 0",
+        "fmt": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss}'",
+        "check:cspell": "cspell -c ./cspell.config.json \"./src/**/*\" --unique --no-progress --no-summary",
+        "check:markuplint": "markuplint -p \"./src/**/*.tsx\"",
+        "test:unit": "vitest run --passWithNoTests",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
+        "check": "run-p check:* test:*",
+        "ci:test-group": "run-p test:*",
+        "ci:check": "run-p check:*",
         "new:ui": "hygen generator ui"
     },
     "lint-staged": {
-        "src/**/*.{ts,tsx}": "pnpm run lint:precommit",
-        "src/**/*.{js,jsx,ts,tsx,json,css,scss}": "pnpm run fmt:precommit"
+        "src/**/*.{js,jsx,ts,tsx,json,css,scss}": [
+            "pnpm check:lint --fix",
+            "pnpm fmt"
+        ]
     },
     "dependencies": {
         "@vanilla-extract/css": "^1.13.0",
