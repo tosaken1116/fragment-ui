@@ -1,19 +1,29 @@
 name: Release
-
 on:
     push:
         branches:
-            - main
-
+            - master
+permissions:
+    contents: write
 jobs:
     release:
+        name: Release
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
-            - name: Setup
-              uses: ./.github/actions/pnpm
+            - name: Checkout
+              uses: actions/checkout@v3
+              with:
+                  fetch-depth: 0
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "lts/*"
+            - uses: pnpm/action-setup@v2
+              with:
+                  version: 7
+            - name: Install dependencies
+              run: pnpm install
             - name: Release
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: npx semantic-release
