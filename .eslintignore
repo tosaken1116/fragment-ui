@@ -1,1 +1,3 @@
 _templates/
+*.config.*
+*.setup.*
