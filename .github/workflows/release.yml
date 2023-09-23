@@ -2,7 +2,7 @@ name: Release
 on:
     push:
         branches:
-            - master
+            - main
 permissions:
     contents: write
 jobs:
@@ -22,7 +22,7 @@ jobs:
               with:
                   version: 7
             - name: Install dependencies
-              run: pnpm install
+              run: pnpm install --no-frozen-lockfile
             - name: Release
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
