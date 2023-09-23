@@ -1,11 +1,14 @@
 ---
 to: "<%= `src/components/${name}/index.test.tsx` %>"
 ---
-import { render, screen } from '@testing-library/react'
+import "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
+
 import { <%= name %> } from '.'
 
 test('title is renderd', () => {
-  render(< <%= name %> />)
+  render(<<%= name %> />)
   screen.debug()
-  expect(screen.getByText('Hello Test')).toBeInTheDocument()
+  const <%= name %>Element = screen.getByText(/<%= name %>/);
+  expect(<%= name %>Element).toBeInTheDocument();
 })

@@ -48,6 +48,8 @@
         "eslint-plugin-unused-imports": "^3.0.0",
         "happy-dom": "^12.1.6",
         "hygen": "^6.2.11",
+        "jest-dom": "^4.0.0",
+        "jsdom": "^22.1.0",
         "storybook": "^7.4.4",
         "typescript": "^5.2.2",
         "vite": "^4.4.9",
