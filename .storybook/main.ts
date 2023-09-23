@@ -1,6 +1,6 @@
 import type { StorybookConfig } from "@storybook/react-vite";
+import path from "path";
 import { mergeConfig } from "vite";
-
 const config: StorybookConfig = {
     stories: [
         "../src/**/*.mdx",
@@ -24,6 +24,10 @@ const config: StorybookConfig = {
         builder: "@storybook/builder-vite",
     },
     async viteFinal(config) {
+        config!.resolve!.alias = {
+            ...config!.resolve!.alias,
+            "@": path.resolve(__dirname, "../src"),
+        };
         return mergeConfig(config, {
             plugins: [
                 require("@vanilla-extract/vite-plugin").vanillaExtractPlugin(),
