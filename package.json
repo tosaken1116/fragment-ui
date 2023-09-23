@@ -20,6 +20,8 @@
     "devDependencies": {
         "@commitlint/cli": "^17.7.1",
         "@commitlint/config-conventional": "^17.7.0",
+        "@markuplint/jsx-parser": "^3.9.1",
+        "@markuplint/react-spec": "^3.10.1",
         "@storybook/addon-essentials": "^7.4.4",
         "@storybook/addon-interactions": "^7.4.4",
         "@storybook/addon-links": "^7.4.4",
@@ -52,6 +54,7 @@
         "hygen": "^6.2.11",
         "jest-dom": "^4.0.0",
         "jsdom": "^22.1.0",
+        "markuplint": "^3.12.1",
         "storybook": "^7.4.4",
         "typescript": "^5.2.2",
         "vite": "^4.4.9",
