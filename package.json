@@ -83,5 +83,7 @@
     },
     "publishConfig": {
         "@tosaken1116:registry": "https://npm.pkg.github.com"
-    }
+    },
+    "readme": "ERROR: No README data found!",
+    "_id": "fragment-ui@0.0.0"
 }
